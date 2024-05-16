@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEnv!</title>
+    <link rel="icon" href="https://avatanplus.com/files/resources/original/5c31fd039b8ca16823445635.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://avatanplus.com/files/resources/original/5c31fd039b8ca16823445635.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='create.css') }}">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="show" method="get">
+                <h1>Кому это письмо?</h1>
+                <span>Мы не собираем никаких персональных данных</span>
+                <input type="text" name="name" placeholder="Имя" />
+                <div class="radio-container"><label>
+                    <input type="radio" name="sex" value="m">
+                    Мужчине
+                </label>
+                <label>
+                    <input type="radio" name="sex" value="f">
+                    Девушке
+                </label></div>
+                <button>Поехали!</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <img style="scale: 1; margin-top: 80px;" src="https://i.pinimg.com/originals/d0/f9/73/d0f9733376a7f01875a098994dee302b.gif">
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Все просто!</h1>
+                    <p>Вводи данные и отправляй ссылку человеку, порадуй его!</p>
+                    <button class="ghost" id="signIn">Вернуться!</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Привет, друг!</h1>
+                    <p>Тебя приветствует UEnv! - место, где ты можешь делиться своей любовью!</p>
+                    <button class="ghost" id="signUp">Начать!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+    </script>
+</body>
+</html>
