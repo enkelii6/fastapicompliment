@@ -260,3 +260,7 @@ footer a {
 .radio-container label {
     flex: 1;
 }
+
+.error-message {
+    color: red;
+}

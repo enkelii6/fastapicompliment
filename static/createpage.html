@@ -11,7 +11,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="show" method="get">
+            <form action="show" method="get" onsubmit="return validateForm()">
                 <h1>Кому это письмо?</h1>
                 <span>Мы не собираем никаких персональных данных</span>
                 <input type="text" name="name" placeholder="Имя" />
@@ -22,7 +22,8 @@
                 <label>
                     <input type="radio" name="sex" value="f">
                     Девушке
-                </label></div>
+                </label></div><span id="error-message" class="error-message"></span>
+                <br><br>
                 <button>Поехали!</button>
             </form>
         </div>
@@ -56,6 +57,26 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
+
+
+        function validateForm() {
+            var radios = document.getElementsByName('sex');
+            var formValid = false;
+
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    formValid = true;
+                    break;
+                }
+            }
+
+            if (!formValid) {
+                document.getElementById('error-message').textContent = 'Простите, но мы еще не умеем обращаться к нон-бинарным личностям';
+                return false;
+            }
+
+            return true;
+        }
     </script>
 </body>
 </html>
